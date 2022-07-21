@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+        <title>Secret Lab: Test</title>
+        <!-- Add Normalize CSS -->
+        <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+        <link rel="stylesheet" href="./style/css/style.min.css">
+        <!-- Custom Scripts -->
+        <script type="module" src="./js/index.js"></script>
+    </head>
+
+    <body>
+        <!-- Header Section -->
+        <header>
+            <div class="logoWrapper"> <img src="./assets/general/logo.png" id="logo" /> </div>
+        </header>
+        <!-- Main Body Section -->
+        <div class="mainWrapper">
+            <canvas id="mainCanvas"></canvas>
+            <div class="rightWrapper">
+
+                <div class="canvasListWrapper">
+                    <h3> Canvas </h3>
+                    <div id="canvasList"> </div>
+                    <div class="actionBox">
+                        <button id="createNewCanvas">
+                            <img src="./assets/icons/newCanvas.svg" class="icon-btn x2" />
+                        </button>
+                        <div class="vertical-serpartor"></div>
+                        <button id="deleteCanvas">
+                            <img src="./assets/icons/delete.svg" class="icon-btn" />
+                        </button>
+                    </div>
+                </div>
+                <div class="rightWrapperInner">
+                    <div class="listWrapper">
+                        <h3> Uploaded Images </h3>
+                        <ul id="imageList"> </ul>
+                    </div>
+                    <div class="listWrapper">
+                        <h3> Tags </h3>
+                        <ul id="tagsList"> </ul>
+                    </div>
+                    <div>
+                        <h3> Current editor mode (<span id="currentMode"> Image </span>)</h3>
+                        <div class="switchBtnWrapper" id="changeEditor">
+                            <img src="./assets/icons/image.png" class="right" />
+                            <img src="./assets/icons/tag.png" class="left" />
+                            <div class="actionBox"></div>
+                        </div>
+                    </div>
+                    <div class="uploadImageWrapper">
+                        <h3>Upload Images</h3>
+                        <label for="uploadFiles">Click here to upload the images</label>
+                        <input type="file" id="uploadFiles" name="files" multiple accept="image/*" />
+                    </div>
+                    <div class="restoreWrapper" title="Undo"></div>
+                </div>
+            </div>
+            <div id="messageBox"> </div>
+            <div id="screenError"> </div>
+        </div>
+        <!-- Footer Section -->
+        <footer>
+            <span> © 2022. Some rights reserve.</span><br />
+            Developed by <a href="mailto: heinthetnaung@gmail.com"> {{ Hein }} </a> Thet Naung.
+        </footer>
+    </body>
+
+</html>

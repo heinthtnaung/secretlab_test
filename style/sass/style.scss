@@ -1,0 +1,331 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&family=Raleway&display=swap");
+
+// Layout Default variables.
+$rightWidth: 350px;
+$borderRadius: 5px 5px 5px 5px;
+$fontSize: 14px;
+$fontSize_2: 36px;
+
+// Color List
+$black_0: #333;
+$black_1: #a2a2a2;
+$black_2: #e6e6e6;
+$grey: #ddd;
+$grey_2: #2e2e2e;
+$grey_3: #d7d7d7;
+$gold_1: #934c1f;
+$orange_1: #ead495;
+$red_1: #ffa8a8;
+$blue_1: #e7eeff;
+$blue_1_op: #2c3240b5;
+$white: #eaeaea;
+
+body {
+  background-color: $white;
+  font-family: "Raleway", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Oswald", sans-serif;
+  color: $grey_3;
+}
+
+a {
+  color: $gold_1;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  padding: 15px 25px;
+  line-height: 24px;
+  span {
+    font-size: $fontSize;
+    color: $black_0;
+  }
+}
+
+#logo {
+  height: 50px;
+  margin: 15px 25px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+canvas {
+  background-image: url("../../assets/bg/dotted.png");
+  background-color: $black_2;
+}
+
+button {
+  background: transparent;
+  cursor: pointer;
+}
+
+ul {
+  padding: 0;
+}
+
+.rightWrapper {
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding: 15px;
+  margin: 15px;
+  width: $rightWidth;
+  height: calc(100vh - 60px);
+  background-color: $blue_1_op;
+  backdrop-filter: blur(5px);
+  border-radius: $borderRadius;
+  box-shadow: -3px 4px 15px 0px $black_1;
+  .rightWrapperInner {
+    position: relative;
+    height: calc(100% - 75px);
+    width: 100%;
+    overflow: auto;
+  }
+}
+
+.mainWrapper {
+  display: flex;
+
+  #textEditorWrapper {
+    position: fixed;
+    right: -9999px;
+  }
+
+  #imageList,
+  #tagsList {
+    list-style: none;
+    min-height: 28vh;
+    position: relative;
+    border: 1px solid $grey_2;
+    border-radius: 5px;
+    padding-top: 15px;
+    li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      span {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 200px;
+        overflow: hidden;
+        color: $grey;
+      }
+      .deleteFileBtn {
+        border-radius: 100%;
+        height: 15px;
+        width: 15px;
+        padding: 5px;
+        margin: 15px;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.1s linear;
+      }
+      &:hover {
+        .deleteFileBtn {
+          opacity: 1;
+        }
+      }
+    }
+    .thumbnailWrapper {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      background-color: $white;
+      margin: 0px 15px 0px 0px;
+      border-radius: $borderRadius;
+      .thumbnail {
+        max-width: 50px;
+        max-height: 50px;
+      }
+    }
+    .noRecord {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      color: $black_1;
+      font-family: "Oswald", sans-serif;
+      font-size: 2rem;
+      opacity: 0.5;
+    }
+  }
+
+  .canvasListWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $blue_1;
+    padding: 0px 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    #createNewCanvas,
+    #deleteCanvas {
+      padding: 0px;
+      border: 0px;
+    }
+    #canvasList {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      button {
+        padding: 15;
+        border: 0;
+        border-radius: $borderRadius;
+        margin: 5px;
+        cursor: pointer;
+        &.active {
+          color: $gold_1;
+          font-size: $fontSize_2;
+          margin: 0px;
+          transition: font-size 0.5s linear, margin 0.5s ease-in-out;
+        }
+      }
+    }
+    .actionBox {
+      display: flex;
+      align-items: center;
+      border-radius: 5px;
+    }
+    h3 {
+      color: $black_0;
+    }
+  }
+
+  .uploadImageWrapper {
+    display: grid;
+    label {
+      padding: 15px;
+      margin: 15px 0px;
+      border-radius: 5px;
+      text-align: center;
+      background-color: $grey;
+      cursor: pointer;
+    }
+    #uploadFiles {
+      display: none;
+    }
+  }
+
+  .restoreWrapper {
+    position: fixed;
+    right: 400px;
+    bottom: 10px;
+    cursor: pointer;
+    img: {
+      height: 50px;
+    }
+  }
+}
+
+.icon-btn {
+  height: 20px;
+  margin: 0px 10px;
+  &.x2 {
+    height: 50px;
+    margin: 0px;
+  }
+}
+
+.vertical-serpartor {
+  border-left: 1px solid $black_0;
+  height: 100%;
+  height: 30px;
+  margin-right: 5px;
+}
+
+// custom switch btn.
+.switchBtnWrapper {
+  width: 60px;
+  height: 30px;
+  background-color: rgb(226, 190, 47);
+  border-radius: 30px;
+  position: relative;
+  margin: 15px 0px;
+  cursor: pointer;
+  .actionBox {
+    position: absolute;
+    left: 0px;
+    width: 30px;
+    height: inherit;
+    border-radius: 100%;
+    background-color: $blue_1;
+    box-shadow: 3px 0px 6px -2px #333;
+    transition: transform 0.3s linear, background-color 0.2s ease-in;
+  }
+  &.active {
+    background-color: #f4e16d;
+    .actionBox {
+      transform: translateX(100%);
+    }
+  }
+  .left {
+    position: absolute;
+    left: 7px;
+    top: 5px;
+    height: 20px;
+  }
+  .right {
+    position: absolute;
+    right: 7px;
+    top: 5px;
+    height: 20px;
+  }
+}
+
+#messageBox {
+  opacity: 0;
+  transition: opacity 0.3s linear;
+  &.active {
+    opacity: 1;
+  }
+  p {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid $grey;
+    border-radius: 100px;
+    padding: 15px;
+    margin: 15px;
+    background-color: $grey_2;
+    backdrop-filter: blur(5px);
+    color: #fff;
+    span {
+      color: $orange_1;
+    }
+  }
+}
+
+#screenError {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+  &.active {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    background-color: $blue_1_op;
+    color: $grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    backdrop-filter: blur(50px);
+  }
+}
